@@ -62,3 +62,12 @@ body {
     display: block;
     margin: 1rem auto;
   }
+  .question-image {
+    width: 100%;
+    max-width: 500px;   /* Begränsar maxbredd */
+    height: auto;       /* Bevarar proportioner */
+    display: block;
+    margin: 0 auto 1rem auto; /* Centrerar och ger luft under */
+    border-radius: 0.5rem;
+  }
+  

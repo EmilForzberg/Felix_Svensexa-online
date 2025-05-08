@@ -100,7 +100,7 @@ const questions = [
     {
       type: "mc",
       question: "Varför ser Felix så ledsen ut i den här bilden?",
-      image: "images/Felix-Sad.JPG",
+      image: "images/Felix_Sad.JPG",
       answers: [
         "Han fick ingen skatteåterbäring detta år",
         "Han kommer inte få ligga ikväll",
@@ -145,8 +145,7 @@ const questions = [
       const img = document.createElement("img");
       img.src = q.image;
       img.alt = "Bild till frågan";
-      img.style.maxWidth = "100%";
-      img.style.marginBottom = "1rem";
+      img.className = "question-image";
       quizDiv.appendChild(img);
     }
   
