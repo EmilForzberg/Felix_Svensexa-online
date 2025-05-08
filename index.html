@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Felix Svensexa Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="quiz-container">
+      <h1>Felix Svensexa Quiz</h1>
+
+      <img
+        src="images/Felix_With_Guitar.png"
+        alt="Felix With Guitar"
+        class="responsive-image"
+        id="start-image"
+      />
+
+      <div id="start-screen">
+        <div class="username">
+          <label for="username">Vad vill du bli kallad under quizet?</label
+          ><br />
+          <input
+            type="text"
+            id="username"
+            style="margin-top: 0.5rem; width: 100%"
+          />
+          <button onclick="startQuiz()">Starta Quiz</button>
+        </div>
+      </div>
+      <div id="quiz" class="hidden"></div>
+      <div id="result" class="result hidden"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
