@@ -103,7 +103,7 @@ const questions = [
       type: "mc",
       question: "Vilket år är denna bilden tagen på Felix?",
       image: "images/Felix_Fjortis.PNG",
-      answers: ["2014", "2015", "2016"],
+      answers: ["2014", "2015", "2016", "2025"],
       correct: 1
     },
     {
