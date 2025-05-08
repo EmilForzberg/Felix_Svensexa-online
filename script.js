@@ -1,4 +1,6 @@
 
+let openAnswers = [];
+
 const questions = [
     {
       type: "mc",
@@ -19,28 +21,34 @@ const questions = [
     },
     {
       type: "mc",
+      question: "Vad sjunger Felix härnästa i klippet?",
+      youtube: "https://www.youtube.com/embed/YeKDtVwrKEg",
+      answers: ["Jag är fucking bäst", "Jag är beer pong", "Jag är som en jävla kung"],
+      correct: 1
+    },
+    {
+      type: "mc",
       question: "Vad hette Felix fotbollsklubb i Luleå?",
       answers: ["Notviken IK", "Notas BK", "Tuna FC"],
       correct: 0
     },
     {
       type: "mc",
-      question: "Vad säger Felix i klippet?",
-      video: "videos/felix-klipp.mp4",
-      answers: ["Rebecka svarar inte mig.", "mobilen är snart död.", "har ingen mottagning här."],
+      question: "Vad kommer Felix säga i klippet?",
+      youtube: "https://www.youtube.com/embed/qiBgJfaN79s",
+      answers: ["Rebecka svarar inte mig.", "Mobilen är snart död.", "Har ingen mottagning här."],
       correct: 2
     },
     {
       type: "mc",
       question: "Vilken turist har Felix gått i här?",
-      image: "images/samurai-museum.jpg",
+      image: "images/Felix_Samurai.JPG",
       answers: ["Ninja och Samurai Museum Tokyo", "Norrköpings Samurai Museum", "Medeltida Museum Tokyo"],
       correct: 0
     },
     {
       type: "mc",
       question: "Utöver att elegant posera med samurajsvärd och rustning, vilket vapen testade Felix både att hantera och använda under besöket på bilden ovan?",
-      image: "images/felix-vapen.jpg",
       answers: ["Kaststjärna", "Nunchucks", "AK-74"],
       correct: 0
     },
@@ -51,7 +59,7 @@ const questions = [
     },
     {
       type: "mc",
-      question: "Vad bar Felix alltid med sig på fest för att förgylla kvällen?",
+      question: "Felix har aldrig varit känd som någon partyprisse i sina yngre dagar – men han var alltid med för att sprida positiv energi (och möjligtvis påminna alla om att dricka vatten). Medan andra anlände med ölplattor och vodka-flaskor, gjorde Felix entré med något helt annat i famnen. Vad var det han alltid bar på för att förgylla sin kväll?",
       answers: [
         "Ett brädspel han planerat att tvinga alla att spela",
         "Ekologisk apelsinjuice",
@@ -62,12 +70,12 @@ const questions = [
     },
     {
       type: "mc",
-      question: "Vilken klassisk Felix-grej gör han när han står i mål?",
+      question: "Alla här vet att Felix har en stor talang för fotboll. Framför allt när han står i mål. Att spela med honom är kul, men han har en viss vana som kan få vilken utespelare som helst att vilja byta sport. Vilken av dessa klassiska Felix-grejer är det jag pratar om?",
       answers: [
-        "Hoppar i sidled fem gånger för att kalibrera målet",
-        "Stoppar spelet om vattenflaskan inte står rätt",
-        "Gnuggar handskar innan varje utspark",
-        "Dramatiskt grepp, rop och 14.3 sekunders paus"
+        "Varje gång Felix ställer sig i mål måste han hoppa i sidled fem gånger för att “kalibrera målet”. Alla andra får snällt stå och vänta medan han utför sin lilla ritual, som om han laddar upp för en VM-final.",
+        "Om Felix har glömt att ställa sin vattenflaska exakt jämte ena stolpen…ja, då stoppas spelet. För det är ju helt omöjligt att rädda skott utan rätt hydrering på rätt plats.",
+        "Felix måste regelbundet gnugga sina handskar mot varandra för att skapa “matchvärme”. Problemet? Han gör det varje gång han ska sparka ut bollen, vilket betyder att alla får stå som statyer och vänta medan han leker pyroman med sina handskar.",
+        "Oavsett hur löst bollen rullar mot honom, så måste Felix ta ett dramatiskt grepp, slänga sig ner, krama bollen, skrika “MÅÅÅÅLVAAAKT!” och ligga blickstilla i exakt 14,3 sekunder innan han går vidare med livet."
       ],
       correct: 3
     },
@@ -92,15 +100,16 @@ const questions = [
       correctAnswer: "Cola och Pringles"
     },
     {
-      type: "text",
+      type: "mc",
       question: "Vilket år är denna bilden tagen på Felix?",
-      image: "images/fjortisfelix.jpg",
-      correctAnswer: ""
+      image: "images/Felix_Fjortis.PNG",
+      answers: ["2014", "2015", "2016"],
+      correct: 1
     },
     {
       type: "mc",
       question: "Varför ser Felix så ledsen ut i den här bilden?",
-      image: "images/Felix_Sad.JPG",
+      image: "images/Felix_Sad.PNG",
       answers: [
         "Han fick ingen skatteåterbäring detta år",
         "Han kommer inte få ligga ikväll",
@@ -206,9 +215,17 @@ const questions = [
     if (q.type === "mc") {
       const selected = document.querySelector("input[name='answer']:checked");
       if (selected && parseInt(selected.value) === q.correct) score++;
+    } else if (q.type === "text") {
+      const input = document.getElementById("text-answer");
+      const answerText = input.value.trim();
+      openAnswers.push({
+        question: q.question,
+        answer: answerText
+      });
     }
-    currentQuestion++;
-    showQuestion();
+  
+    currentQuestion++;         // ← Viktigt
+    showQuestion();            // ← Viktigt
   }
   
   function showResult() {
@@ -216,5 +233,28 @@ const questions = [
     const resultDiv = document.getElementById("result");
     resultDiv.classList.remove("hidden");
     resultDiv.innerHTML = `${userName}, du fick ${score} av ${questions.filter(q => q.type === 'mc').length} rätt på quizet!`;
+  
+    if (openAnswers.length > 0) {
+      const header = document.createElement("h3");
+      header.textContent = "Dina svar på öppna frågor:";
+      resultDiv.appendChild(header);
+  
+      const list = document.createElement("ul");
+      openAnswers.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <strong>Fråga:</strong> ${item.question}<br>
+          <strong>Ditt svar:</strong> ${item.answer}<br><br>
+        `;
+        list.appendChild(li);
+      });
+      resultDiv.appendChild(list);
+  
+      const note = document.createElement("p");
+      note.innerHTML = "<em>Dessa svar rättas tillsammans manuellt!</em>";
+      resultDiv.appendChild(note);
+    }
   }
+  
+  
   

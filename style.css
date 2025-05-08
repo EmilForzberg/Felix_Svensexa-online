@@ -71,3 +71,13 @@ body {
     border-radius: 0.5rem;
   }
   
+  #result ul {
+    padding-left: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  #result li {
+    margin-bottom: 1rem;
+  }
+  
+  
