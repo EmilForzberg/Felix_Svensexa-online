@@ -11,12 +11,14 @@ const questions = [
     {
       type: "text",
       question: "Vad hade Felix för raggningsreplik för att få alla brudarna på fall när vi var på Gotland?",
-      correctAnswer: "Vart ligger ICA någonstans?"
+      image: "images/Felix_Color_Run.jpg",
+      answers: "Vart ligger ICA någonstans?"
     },
     {
       type: "mc",
       question: "Vilket ställe har Felix inte varit på?",
-      answers: ["Trolltunga", "Trollsjön", "Galdhøpiggen"],
+      image: "images/Felix_Mountain.jpg",
+      answers: ["Trolltunga", "Trollsjön", "Galdhøpiggen", "I din mammas säng"],
       correct: 1
     },
     {
@@ -49,6 +51,7 @@ const questions = [
     {
       type: "mc",
       question: "Utöver att elegant posera med samurajsvärd och rustning, vilket vapen testade Felix både att hantera och använda under besöket på bilden ovan?",
+      image: "images/Felix_Ninja.jpeg",
       answers: ["Kaststjärna", "Nunchucks", "AK-74"],
       correct: 0
     },
@@ -178,10 +181,13 @@ const questions = [
         quizDiv.appendChild(iframe);
       }
 
-    const questionEl = document.createElement("div");
-    questionEl.className = "question";
-    questionEl.textContent = `Fråga ${currentQuestion + 1} av ${questions.length} – ${userName}: ${q.question}`;
-    quizDiv.appendChild(questionEl);
+      const questionEl = document.createElement("div");
+      questionEl.className = "question";
+      questionEl.innerHTML = `
+        <div style="margin-bottom: 0.5rem;"><strong>Fråga ${currentQuestion + 1} av ${questions.length} – ${userName}:</strong></div>
+        <div>${q.question}</div>
+      `;
+      quizDiv.appendChild(questionEl);
   
     if (q.type === "mc") {
       const answersDiv = document.createElement("div");
