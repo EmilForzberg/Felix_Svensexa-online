@@ -318,24 +318,25 @@ const questions = [
     document.getElementById("quiz").classList.add("hidden");
     const resultDiv = document.getElementById("result");
     resultDiv.classList.remove("hidden");
+  
+    // Visa slutpoängen
     resultDiv.innerHTML = `
       <h2>Felix Svensexa Quiz</h2>
       <p><strong>${userName}</strong>, du fick <strong>${score}</strong> av <strong>${questions.filter(q => q.type === 'mc').length}</strong> rätt på quizet!</p>
-      <br>
     `;
   
+    // Visa öppna svar
     if (openAnswers.length > 0) {
       const header = document.createElement("h3");
       header.textContent = "Dina svar på öppna frågor:";
       resultDiv.appendChild(header);
   
       const list = document.createElement("ul");
-      list.style.lineHeight = "1.8"; // 👈 Lite extra luft mellan varje punkt
       openAnswers.forEach((item) => {
         const li = document.createElement("li");
         li.innerHTML = `
-          <strong>Fråga:</strong><br>${item.question}<br><br>
-          <strong>Ditt svar:</strong><br>${item.answer}<br><br><hr style="margin: 1rem 0;">
+          <p><strong>Fråga:</strong> ${item.question}</p>
+          <p><strong>Ditt svar:</strong> ${item.answer}</p>
         `;
         list.appendChild(li);
       });
@@ -343,10 +344,10 @@ const questions = [
   
       const note = document.createElement("p");
       note.innerHTML = "<em>Dessa svar rättas tillsammans manuellt!</em>";
-      note.style.marginTop = "1.5rem";
       resultDiv.appendChild(note);
     }
   }
+  
   
   
   
