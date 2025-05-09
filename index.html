@@ -18,6 +18,13 @@
 
       <div id="start-screen">
         <div class="username">
+          <label for="password">Lösenord:</label><br />
+          <input
+            type="password"
+            id="password"
+            style="width: 100%; margin-bottom: 1rem"
+          />
+
           <label for="username">Vad vill du bli kallad under quizet?</label
           ><br />
           <input
@@ -25,9 +32,17 @@
             id="username"
             style="margin-top: 0.5rem; width: 100%"
           />
+
           <button onclick="startQuiz()">Starta Quiz</button>
+          <p
+            id="error-message"
+            style="color: red; display: none; margin-top: 0.5rem"
+          >
+            Fel lösenord!
+          </p>
         </div>
       </div>
+
       <div id="quiz" class="hidden"></div>
       <div id="result" class="result hidden"></div>
     </div>

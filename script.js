@@ -73,10 +73,16 @@ const questions = [
     },
     {
       type: "text",
-      image: "images/Felix_Sexy.jpg",
       question: "I gymnasiet var det 2 saker framförallt Fella avstod ifrån enligt en känd shot ramsa, vad var det?",
-      images: "images/Felix_Drunk.png", 
+      image: "images/Felix_Sexy.jpg",
       correctAnswer: "Alkohol och kvinnohål"
+    },
+    {
+      type: "mc",
+      question: "När hämtade Felix och Rebecka sin hund Bonnie för första gången?",
+      image: "images/Felix_With_Bonnie.jpg",
+      answers: ["2023, 21 januari", "2023, 12 februari", "2023, 17 mars", "2023, 1 april"],
+      correct: 0
     },
     {
       type: "mc",
@@ -131,7 +137,7 @@ const questions = [
     {
       type: "text",
       question: "Vad blev Felix känd för att dricka och äta på fester?",
-      image: "images/Felix_Drunk.PNG",
+      image: "images/Felix_Drunk.png",
       correctAnswer: "Cola och Pringles"
     },
     {
@@ -143,6 +149,13 @@ const questions = [
     },
     {
       type: "mc",
+      question: "Vad är det Felix gör på bilden?",
+      image: "images/Felix_Toilet.JPG",
+      answers: ["Bajsar", "Kissar", "Sover", "Saknar en go tequila shot!"],
+      correct: 1
+    },
+    {
+      type: "mc",
       question: "Varför ser Felix så ledsen ut i den här bilden?",
       image: "images/Felix_Sad.PNG",
       answers: [
@@ -150,7 +163,7 @@ const questions = [
         "Han kommer inte få ligga ikväll",
         "Han är på Ed Sheeran konsert",
         "Han missade bussen och fick gå hem",
-        "Han saknar en ha kall go bärs!"
+        "Han saknar en kall go bärs!"
     ],
       correct: 2
     },
@@ -187,6 +200,14 @@ const questions = [
   let userName = "";
   
   function startQuiz() {
+    const enteredPassword = document.getElementById("password").value.trim();
+    const correctPassword = "felixärinteoskuld"; // <-- byt ut till ditt riktiga lösenord
+  
+    if (enteredPassword !== correctPassword) {
+      document.getElementById("error-message").style.display = "block";
+      return;
+    }
+  
     userName = document.getElementById("username").value.trim() || "Deltagare";
     document.getElementById("start-screen").classList.add("hidden");
     document.getElementById("start-image").style.display = "none";
