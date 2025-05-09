@@ -6,14 +6,14 @@ const questions = [
       type: "mc",
       question: "Vad heter Felix i mellannamn?",
       image: "images/Felix_Kiss_Me.jpg",
-      answers: ["Räkan", "Mats", "Mattias", "Martin", "En Bärs, Tack."],
+      answers: ["Räkan", "Mats", "Mattias", "Martin", "En bärs, tack."],
       correct: 2
     },
     {
       type: "mc",
       question: "Vad sög Felix på för något när vi var yngre?",
       image: "images/Felix_With_Banana.jpg",
-      answers: ["En Dildo", "En Morot", "En Banan"],
+      answers: ["En dildo", "En morot", "En banan", "En ölburk"],
       correct: 1
     },
     {
@@ -21,7 +21,7 @@ const questions = [
       question: "Hmmmm... Vem är det som är Felix, höger eller vänster?",
       image: "images/Felix_Left_Or_Right.jpg",
       answers: ["Höger", "Vänster"],
-      correct: 0
+      correct: 1
     },
     {
       type: "text",
@@ -73,6 +73,7 @@ const questions = [
     },
     {
       type: "text",
+      image: "images/Felix_Sexy.jpg",
       question: "I gymnasiet var det 2 saker framförallt Fella avstod ifrån enligt en känd shot ramsa, vad var det?",
       images: "images/Felix_Drunk.png", 
       correctAnswer: "Alkohol och kvinnohål"
@@ -80,7 +81,7 @@ const questions = [
     {
       type: "mc",
       question: "Felix har aldrig varit känd som någon partyprisse i sina yngre dagar – men han var alltid med för att sprida positiv energi (och möjligtvis påminna alla om att dricka vatten). Medan andra anlände med ölplattor och vodka-flaskor, gjorde Felix entré med något helt annat i famnen. Vad var det han alltid bar på för att förgylla sin kväll?",
-      image: "Felix_Kid.jpg",
+      image: "images/Felix_Kid.jpg",
       answers: [
         "Ett brädspel han planerat att tvinga alla att spela",
         "Ekologisk apelsinjuice",
@@ -99,6 +100,7 @@ const questions = [
     {
       type: "mc",
       question: "Alla här vet att Felix har en stor talang för fotboll. Framför allt när han står i mål. Att spela med honom är kul, men han har en viss vana som kan få vilken utespelare som helst att vilja byta sport. Vilken av dessa klassiska Felix-grejer är det jag pratar om?",
+      image: "images/Felix_Football_2.jpg",
       answers: [
         "Varje gång Felix ställer sig i mål måste han hoppa i sidled fem gånger för att “kalibrera målet”. Alla andra får snällt stå och vänta medan han utför sin lilla ritual, som om han laddar upp för en VM-final.",
         "Om Felix har glömt att ställa sin vattenflaska exakt jämte ena stolpen…ja, då stoppas spelet. För det är ju helt omöjligt att rädda skott utan rätt hydrering på rätt plats.",
@@ -147,14 +149,15 @@ const questions = [
         "Han fick ingen skatteåterbäring detta år",
         "Han kommer inte få ligga ikväll",
         "Han är på Ed Sheeran konsert",
-        "Han missade bussen och fick gå hem"
+        "Han missade bussen och fick gå hem",
+        "Han saknar en ha kall go bärs!"
     ],
       correct: 2
     },
     {
       type: "mc",
       question: "Här har vi Felix eller jag menar såklart jultomten, men från vilken höjdmeter hälsar tomten god jul ifrån?",
-      image: "images/Felix_Santa_Temp.jpg",
+      image: "images/Felix_SantaC.jpg",
       answers: [
         "523 m.ö.h.",
         "782 m.ö.h.",
@@ -163,6 +166,12 @@ const questions = [
         "1244 m.ö.h."
       ],
       correct: 2
+    },
+    {
+      type: "text",
+      question: "Vilket lag är det på halsduken som Felix har på sig?",
+      image: "images/Felix_Leksand.jpg",
+      correctAnswer: "Leksands IF"
     },
     {
         type: "mc",
