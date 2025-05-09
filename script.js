@@ -2,6 +2,13 @@
 let openAnswers = [];
 
 const questions = [
+  {
+      type: "mc",
+      question: "Vad heter Felix i mellannamn?",
+      image: "images/Felix_Kiss_Me.jpg",
+      answers: ["Räkan", "Mats", "Mattias", "Martin", "En Bärs, Tack."],
+      correct: 2
+    },
     {
       type: "mc",
       question: "Vad sög Felix på för något när vi var yngre?",
@@ -40,28 +47,28 @@ const questions = [
       type: "mc",
       question: "Vad hette Felix fotbollsklubb i Luleå?",
       image: "images/Felix_Football.jpg",
-      answers: ["Notviken IK", "Notas BK", "Tuna FC"],
+      answers: ["Notviken IK", "Notas BK", "Tuna FC", "Jag har inte fått min bärs??"],
       correct: 0
     },
     {
       type: "mc",
       question: "Vad kommer Felix säga i klippet?",
       youtube: "https://www.youtube.com/embed/qiBgJfaN79s",
-      answers: ["Rebecka svarar inte mig.", "Mobilen är snart död.", "Har ingen mottagning här."],
+      answers: ["Rebecka svarar inte mig.", "Mobilen är snart död.", "Har ingen mottagning här.", "Jag kommer inte in på Pornhub."],
       correct: 2
     },
     {
       type: "mc",
       question: "Vilken turist har Felix gått i här?",
       image: "images/Felix_Samurai.JPG",
-      answers: ["Ninja och Samurai Museum Tokyo", "Norrköpings Samurai Museum", "Medeltida Museum Tokyo"],
+      answers: ["Ninja och Samurai Museum Tokyo", "Norrköpings Samurai Museum", "Medeltida Museum Tokyo", "En Vanlig Fredagkväll För Felix"],
       correct: 0
     },
     {
       type: "mc",
       question: "Utöver att elegant posera med samurajsvärd och rustning, vilket vapen testade Felix både att hantera och använda under besöket på bilden ovan?",
       image: "images/Felix_Samurai.JPG",
-      answers: ["Kaststjärna", "Nunchucks", "AK-74"],
+      answers: ["Kaststjärna", "Nunchucks", "AK-74", "Han spela brädspel istället"],
       correct: 0
     },
     {
@@ -145,10 +152,23 @@ const questions = [
       correct: 2
     },
     {
+      type: "mc",
+      question: "Här har vi Felix eller jag menar såklart jultomten, men från vilken höjdmeter hälsar tomten god jul ifrån?",
+      image: "images/Felix_Santa_Temp.jpg",
+      answers: [
+        "523 m.ö.h.",
+        "782 m.ö.h.",
+        "974 m.ö.h.",
+        "1088 m.ö.h.",
+        "1244 m.ö.h."
+      ],
+      correct: 2
+    },
+    {
         type: "mc",
         question: "Vad är säger Felix härnäst i klippet?",
         youtube: "https://www.youtube.com/embed/n55_AMS7LyU",
-        answers: ["Kom och knulla med mig Patrik!", "30 slak isvak Emil!", "Det är kallare än i ett isbjörns rövhål!"],
+        answers: ["Kom och knulla med mig Patrik!", "30 slak isvak Emil!", "Det är kallare än i ett isbjörns rövhål!", "I'M THE KING OF THE WORLD!"],
         correct: 1
     }
   ];
