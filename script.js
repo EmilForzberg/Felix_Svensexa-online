@@ -123,15 +123,22 @@ const questions = [
     },
     {
       type: "text",
-      question: "Felix har bott på många ställen i världen, nämn minst fyra.",
+      question: "Felix har bott på många ställen (du får inte säga länder, men du får säga städer och kommuner) i världen, nämn minst fyra.",
       image: "images/Felix_Drunk.png",
-      correctAnswer: "Luleå, Upplands Väsby, Nya Zeeland, Solna, Sollentuna"
+      correctAnswer: "Luleå, Upplands Väsby, Wellington, Solna, Sollentuna"
     },
     {
       type: "mc",
       question: "Hur träffades Felix och Rebecka?",
       image: "images/Felix_With_Rebecka.JPG",
       answers: ["Badoo", "Kvart i tre ragg", "En kompis, kompis, kompis","Tinder"],
+      correct: 0
+    },
+    {
+      type: "mc",
+      question: "Vad fan är det som händer här?",
+      youtube: "https://www.youtube.com/embed/wwFiKa11HP8",
+      answers: ["Felix ska på strippklubb", "Felix ska dricka bärs", "Felix ska snorta koks","Felix har fyllt år", "All of the above"],
       correct: 0
     },
     {
@@ -201,7 +208,7 @@ const questions = [
   
   function startQuiz() {
     const enteredPassword = document.getElementById("password").value.trim();
-    const correctPassword = "felixärinteoskuld6969"; // <-- byt ut till ditt riktiga lösenord
+    const correctPassword = "hej"; // <-- byt ut till ditt riktiga lösenord
   
     if (enteredPassword !== correctPassword) {
       document.getElementById("error-message").style.display = "block";
@@ -311,7 +318,11 @@ const questions = [
     document.getElementById("quiz").classList.add("hidden");
     const resultDiv = document.getElementById("result");
     resultDiv.classList.remove("hidden");
-    resultDiv.innerHTML = `${userName}, du fick ${score} av ${questions.filter(q => q.type === 'mc').length} rätt på quizet!`;
+    resultDiv.innerHTML = `
+      <h2>Felix Svensexa Quiz</h2>
+      <p><strong>${userName}</strong>, du fick <strong>${score}</strong> av <strong>${questions.filter(q => q.type === 'mc').length}</strong> rätt på quizet!</p>
+      <br>
+    `;
   
     if (openAnswers.length > 0) {
       const header = document.createElement("h3");
@@ -319,11 +330,12 @@ const questions = [
       resultDiv.appendChild(header);
   
       const list = document.createElement("ul");
-      openAnswers.forEach((item, index) => {
+      list.style.lineHeight = "1.8"; // 👈 Lite extra luft mellan varje punkt
+      openAnswers.forEach((item) => {
         const li = document.createElement("li");
         li.innerHTML = `
-          <strong>Fråga:</strong> ${item.question}<br>
-          <strong>Ditt svar:</strong> ${item.answer}<br><br>
+          <strong>Fråga:</strong><br>${item.question}<br><br>
+          <strong>Ditt svar:</strong><br>${item.answer}<br><br><hr style="margin: 1rem 0;">
         `;
         list.appendChild(li);
       });
@@ -331,9 +343,11 @@ const questions = [
   
       const note = document.createElement("p");
       note.innerHTML = "<em>Dessa svar rättas tillsammans manuellt!</em>";
+      note.style.marginTop = "1.5rem";
       resultDiv.appendChild(note);
     }
   }
+  
   
   
   
