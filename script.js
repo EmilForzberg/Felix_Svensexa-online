@@ -5,8 +5,16 @@ const questions = [
     {
       type: "mc",
       question: "Vad sög Felix på för något när vi var yngre?",
+      image: "images/Felix_With_Banana.jpg",
       answers: ["En Dildo", "En Morot", "En Banan"],
       correct: 1
+    },
+    {
+      type: "mc",
+      question: "Hmmmm... Vem är det som är Felix, höger eller vänster?",
+      image: "images/Felix_Left_Or_Right.jpg",
+      answers: ["Höger", "Vänster"],
+      correct: 0
     },
     {
       type: "text",
@@ -31,6 +39,7 @@ const questions = [
     {
       type: "mc",
       question: "Vad hette Felix fotbollsklubb i Luleå?",
+      image: "images/Felix_Football.jpg",
       answers: ["Notviken IK", "Notas BK", "Tuna FC"],
       correct: 0
     },
@@ -51,18 +60,20 @@ const questions = [
     {
       type: "mc",
       question: "Utöver att elegant posera med samurajsvärd och rustning, vilket vapen testade Felix både att hantera och använda under besöket på bilden ovan?",
-      image: "images/Felix_Ninja.jpeg",
+      image: "images/Felix_Samurai.JPG",
       answers: ["Kaststjärna", "Nunchucks", "AK-74"],
       correct: 0
     },
     {
       type: "text",
       question: "I gymnasiet var det 2 saker framförallt Fella avstod ifrån enligt en känd shot ramsa, vad var det?",
+      images: "images/Felix_Drunk.png", 
       correctAnswer: "Alkohol och kvinnohål"
     },
     {
       type: "mc",
       question: "Felix har aldrig varit känd som någon partyprisse i sina yngre dagar – men han var alltid med för att sprida positiv energi (och möjligtvis påminna alla om att dricka vatten). Medan andra anlände med ölplattor och vodka-flaskor, gjorde Felix entré med något helt annat i famnen. Vad var det han alltid bar på för att förgylla sin kväll?",
+      image: "Felix_Kid.jpg",
       answers: [
         "Ett brädspel han planerat att tvinga alla att spela",
         "Ekologisk apelsinjuice",
@@ -70,6 +81,13 @@ const questions = [
         "En påse lösviktsgodis"
       ],
       correct: 2
+    },
+    {
+      type: "mc",
+      question: "På en skala från 1-10, hur snygg tycker Felix själv han är på den här bilden?",
+      image: "images/Felix_With_Guitar_2.jpg",
+      answers: ["1", "Inte så pjåkig", "Kvart i tre ragg material", "Väsbys Skönhet", "Duger i krig", "10"],
+      correct: "3"
     },
     {
       type: "mc",
@@ -85,21 +103,26 @@ const questions = [
     {
       type: "text",
       question: "Vad brukade Felix säga när han ville hålla med någon med orten slang?",
+      image: "images/Felix_GangsterBoi.jpg",
       correctAnswer: "Sanningen bror"
     },
     {
       type: "text",
       question: "Felix har bott på många ställen i världen, nämn minst fyra.",
+      image: "images/Felix_Drunk.png",
       correctAnswer: "Luleå, Upplands Väsby, Nya Zeeland, Solna, Sollentuna"
     },
     {
-      type: "text",
+      type: "mc",
       question: "Hur träffades Felix och Rebecka?",
-      correctAnswer: "Tinder"
+      image: "images/Felix_With_Rebecka.JPG",
+      answers: ["Badoo", "Kvart i tre ragg", "En kompis, kompis, kompis","Tinder"],
+      correct: 0
     },
     {
       type: "text",
-      question: "Vad blev Felix känd för att äta och dricka på fester?",
+      question: "Vad blev Felix känd för att dricka och äta på fester?",
+      image: "images/Felix_Drunk.PNG",
       correctAnswer: "Cola och Pringles"
     },
     {
