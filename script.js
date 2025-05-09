@@ -201,7 +201,7 @@ const questions = [
   
   function startQuiz() {
     const enteredPassword = document.getElementById("password").value.trim();
-    const correctPassword = "felixärinteoskuld"; // <-- byt ut till ditt riktiga lösenord
+    const correctPassword = "felixärinteoskuld6969"; // <-- byt ut till ditt riktiga lösenord
   
     if (enteredPassword !== correctPassword) {
       document.getElementById("error-message").style.display = "block";
