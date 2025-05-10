@@ -1,97 +1,128 @@
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #eaf4fc;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  .quiz-container {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    max-width: 700px;
-    width: 100%;
-  }
-  h1 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  .question {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-  .answers {
-    margin-bottom: 1rem;
-  }
-  .answers label {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  .hidden {
-    display: none;
-  }
-  button {
-    display: block;
-    margin: 1rem auto 0 auto;
-    background-color: #2e8b57;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-  }
-  .result {
-    text-align: center;
-    font-size: 1.4rem;
-    margin-top: 2rem;
-  }
-  .username {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  .responsive-image {
-    width: 100%;
-    height: auto;
-    max-height: 300px;
-    object-fit: contain;
-    display: block;
-    margin: 1rem auto;
-  }
-  .question-image {
-    width: 100%;
-    max-width: 500px;   /* Begränsar maxbredd */
-    height: auto;       /* Bevarar proportioner */
-    display: block;
-    margin: 0 auto 1rem auto; /* Centrerar och ger luft under */
-    border-radius: 0.5rem;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #eaf4fc;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
-  #result ul {
-    padding-left: 1.2rem;
-    line-height: 1.6;
-  }
-  
-  #result li {
-    margin-bottom: 1rem;
-  }
+.quiz-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+}
 
-  #leaderboard {
-    margin-top: 2rem;
-    text-align: center;
-  }
-  #leaderboard ol {
-    padding-left: 0;
-    list-style: none;
-  }
-  #leaderboard li {
-    margin: 0.5rem 0;
-    font-weight: bold;
-  }
-  
-  
-  
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.question {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.answers {
+  margin-bottom: 1rem;
+}
+
+.answers label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  display: block;
+  margin: 1rem auto;
+  background-color: #2e8b57;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.result {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: 2rem;
+}
+
+.username {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* RESPONSIVE BILDER */
+.responsive-image {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  display: block;
+  margin: 1rem auto;
+}
+
+.question-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem auto;
+  border-radius: 0.5rem;
+}
+
+/* INPUTFÄLT */
+#start-screen input[type="text"],
+#start-screen input[type="password"] {
+  width: 35%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  display: block;
+  margin: 0.5rem auto 1.2rem auto;
+}
+
+/* EXTRA SPACING */
+#start-screen button:first-of-type {
+  margin-bottom: 2rem; /* Mellan "Visa topplista" och lösenord */
+}
+
+#result ul {
+  padding-left: 1.2rem;
+  line-height: 1.6;
+}
+
+#result li {
+  margin-bottom: 1rem;
+}
+
+#leaderboard {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+#leaderboard ol {
+  padding-left: 0;
+  list-style: none;
+}
+
+#leaderboard li {
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+#start-screen {
+  margin-top: 2rem;
+}
