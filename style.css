@@ -70,7 +70,7 @@ body {
     margin: 0 auto 1rem auto; /* Centrerar och ger luft under */
     border-radius: 0.5rem;
   }
-  
+
   #result ul {
     padding-left: 1.2rem;
     line-height: 1.6;
@@ -79,5 +79,19 @@ body {
   #result li {
     margin-bottom: 1rem;
   }
+
+  #leaderboard {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  #leaderboard ol {
+    padding-left: 0;
+    list-style: none;
+  }
+  #leaderboard li {
+    margin: 0.5rem 0;
+    font-weight: bold;
+  }
+  
   
   

@@ -9,6 +9,7 @@
     <div class="quiz-container">
       <h1>Felix Svensexa Quiz</h1>
 
+      <!-- Instruktioner -->
       <p
         id="instructions"
         style="text-align: center; margin: 1rem auto; max-width: 600px"
@@ -20,6 +21,7 @@
         frågan.<br />
       </p>
 
+      <!-- Startbild -->
       <img
         src="images/Felix_With_Guitar.png"
         alt="Felix With Guitar"
@@ -27,8 +29,15 @@
         id="start-image"
       />
 
+      <!-- Startskärm -->
       <div id="start-screen">
+        <!-- Topplista-knapp -->
+        <button onclick="showLeaderboardOnStart()" style="margin-top: 1rem">
+          Visa topplista
+        </button>
+
         <div class="username">
+          <!-- Lösenord -->
           <label for="password">Lösenord:</label><br />
           <input
             type="password"
@@ -36,6 +45,7 @@
             style="width: 100%; margin-bottom: 1rem"
           />
 
+          <!-- Användarnamn -->
           <label for="username">Vad vill du bli kallad under quizet?</label
           ><br />
           <input
@@ -44,7 +54,9 @@
             style="margin-top: 0.5rem; width: 100%"
           />
 
+          <!-- Startknapp -->
           <button onclick="startQuiz()">Starta Quiz</button>
+          <!-- Felmeddelande -->
           <p
             id="error-message"
             style="color: red; display: none; margin-top: 0.5rem"
@@ -54,9 +66,19 @@
         </div>
       </div>
 
+      <!-- Quiz och resultat -->
       <div id="quiz" class="hidden"></div>
       <div id="result" class="result hidden"></div>
+
+      <!-- Leaderboard på startsidan -->
+      <div id="leaderboard-start" class="hidden"></div>
+
+      <!-- Leaderboard på efter quiz -->
+      <div id="leaderboard" class="hidden"></div>
     </div>
+
+    <!-- Supabase och JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
   </body>
 </html>

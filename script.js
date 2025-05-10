@@ -1,3 +1,6 @@
+const supabaseUrl = "https://snbwqnuilmywckfjigij.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNuYndxbnVpbG15d2NrZmppZ2lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4NjA0NDgsImV4cCI6MjA2MjQzNjQ0OH0.tummXUm-uy7cVt1G3u2J06s4ERp9aFDPdTrSUxFUCqo";
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 let openAnswers = [];
 
@@ -68,8 +71,8 @@ const questions = [
       type: "mc",
       question: "Utöver att elegant posera med samurajsvärd och rustning, vilket vapen testade Felix både att hantera och använda under besöket på bilden ovan?",
       image: "images/Felix_Samurai.JPG",
-      answers: ["Kaststjärna", "Nunchucks", "AK-74", "Han spela brädspel istället"],
-      correct: 0
+      answers: ["Katana", "Nunchucks", "Kaststjärna", "Han valde att spela brädspel istället"],
+      correct: 2
     },
     {
       type: "text",
@@ -101,7 +104,7 @@ const questions = [
       question: "På en skala från 1-10, hur snygg tycker Felix själv han är på den här bilden?",
       image: "images/Felix_With_Guitar_2.jpg",
       answers: ["1", "Inte så pjåkig", "Kvart i tre ragg material", "Väsbys Skönhet", "Duger i krig", "10"],
-      correct: "3"
+      correct: 3
     },
     {
       type: "mc",
@@ -132,14 +135,14 @@ const questions = [
       question: "Hur träffades Felix och Rebecka?",
       image: "images/Felix_With_Rebecka.JPG",
       answers: ["Badoo", "Kvart i tre ragg", "En kompis, kompis, kompis","Tinder"],
-      correct: 0
+      correct: 3
     },
     {
       type: "mc",
       question: "Vad fan är det som händer här?",
       youtube: "https://www.youtube.com/embed/wwFiKa11HP8",
       answers: ["Felix ska på strippklubb", "Felix ska dricka bärs", "Felix ska snorta koks","Felix har fyllt år", "All of the above"],
-      correct: 0
+      correct: 3
     },
     {
       type: "text",
@@ -159,7 +162,7 @@ const questions = [
       question: "Vad är det Felix gör på bilden?",
       image: "images/Felix_Toilet.JPG",
       answers: ["Bajsar", "Kissar", "Sover", "Saknar en go tequila shot!"],
-      correct: 1
+      correct: 0
     },
     {
       type: "mc",
@@ -185,7 +188,7 @@ const questions = [
         "1088 m.ö.h.",
         "1244 m.ö.h."
       ],
-      correct: 2
+      correct: 3
     },
     {
       type: "text",
@@ -198,7 +201,7 @@ const questions = [
         question: "Vad är säger Felix härnäst i klippet?",
         youtube: "https://www.youtube.com/embed/n55_AMS7LyU",
         answers: ["Kom och knulla med mig Patrik!", "30 slak isvak Emil!", "Det är kallare än i ett isbjörns rövhål!", "I'M THE KING OF THE WORLD!"],
-        correct: 1
+        correct: 0
     }
   ];
   
@@ -325,6 +328,20 @@ const questions = [
       <p><strong>${userName}</strong>, du fick <strong>${score}</strong> av <strong>${questions.filter(q => q.type === 'mc').length}</strong> rätt på quizet!</p>
     `;
   
+    // Spara poäng till Supabase
+    (async () => {
+      const { error } = await supabase
+        .from("highscores")
+        .insert([{ name: userName, score: score }]);
+  
+      if (error) {
+        console.error("Fel vid insättning i Supabase:", error.message);
+      } else {
+        console.log("Poäng sparad till Supabase!");
+        showLeaderboard(); // Visa topplistan EFTER att poäng är sparad
+      }
+    })();
+  
     // Visa öppna svar
     if (openAnswers.length > 0) {
       const header = document.createElement("h3");
@@ -347,6 +364,67 @@ const questions = [
       resultDiv.appendChild(note);
     }
   }
+  
+
+  async function showLeaderboard() {
+    const leaderboardDiv = document.getElementById("leaderboard");
+    leaderboardDiv.classList.remove("hidden");
+    leaderboardDiv.innerHTML = "<h3>🏆 Topplistan:</h3>";
+  
+    const { data, error } = await supabase
+      .from("highscores")
+      .select("*")
+      .order("score", { ascending: false })
+      .limit(5);
+  
+    if (error) {
+      leaderboardDiv.innerHTML += "<p>Kunde inte ladda topplistan.</p>";
+      console.error("Fel vid hämtning:", error.message);
+      return;
+    }
+  
+    const list = document.createElement("ol");
+    data.forEach(entry => {
+      const li = document.createElement("li");
+      li.textContent = `${entry.name} – ${entry.score} poäng`;
+      list.appendChild(li);
+    });
+  
+    leaderboardDiv.appendChild(list);
+  }
+
+  async function showLeaderboardOnStart() {
+    const leaderboardStartDiv = document.getElementById("leaderboard-start");
+    leaderboardStartDiv.classList.remove("hidden");
+    leaderboardStartDiv.innerHTML = "<h3>🏆 Topplistan:</h3>";
+  
+    const { data, error } = await supabase
+      .from("highscores")
+      .select("*")
+      .order("score", { ascending: false })
+      .limit(5);
+  
+    if (error) {
+      leaderboardStartDiv.innerHTML += "<p>Kunde inte ladda topplistan.</p>";
+      console.error("Fel vid hämtning:", error.message);
+      return;
+    }
+  
+    if (!data || data.length === 0) {
+      leaderboardStartDiv.innerHTML += "<p>Ingen har gjort quizet ännu!</p>";
+      return;
+    }
+  
+    const list = document.createElement("ol");
+    data.forEach(entry => {
+      const li = document.createElement("li");
+      li.textContent = `${entry.name} – ${entry.score} poäng`;
+      list.appendChild(li);
+    });
+  
+    leaderboardStartDiv.appendChild(list);
+  }
+  
   
   
   
