@@ -62,7 +62,7 @@ const questions = [
     },
     {
       type: "mc",
-      question: "Vilken turist har Felix gått i här?",
+      question: "Vilken turistfälla har Felix gått i här?",
       image: "images/Felix_Samurai.JPG",
       answers: ["Ninja och Samurai Museum Tokyo", "Norrköpings Samurai Museum", "Medeltida Museum Tokyo", "En Vanlig Fredagkväll För Felix"],
       correct: 0
@@ -409,7 +409,7 @@ const questions = [
       .from("highscores")
       .select("*")
       .order("score", { ascending: false })
-      .limit(5);
+      .limit(12);
   
     if (error) {
       leaderboardStartDiv.innerHTML += "<p>Kunde inte ladda topplistan.</p>";
