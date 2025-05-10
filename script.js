@@ -214,8 +214,8 @@ const questions = [
       type: "mc",
       question: "Förgående stad har också ett känt adjektiv som beskriver staden. Vad är det för adjektiv?",
       image: "images/Felix_New_Z_2.jpg",
-      answers: ["Awesome", "Windy", "Downy", "Crazy", "Rainy", "Chilly"],
-      correct: 1
+      answers: ["Awesome", "Crazy", "Downy", "Windy", "Rainy", "Chilly"],
+      correct: 3
     },
     {
         type: "mc",
