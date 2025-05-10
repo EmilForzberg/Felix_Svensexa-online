@@ -75,6 +75,13 @@ const questions = [
       correct: 2
     },
     {
+      type: "mc",
+      question: "Det här är egentligen inte fråga, Felix är bara pinsam och är full.",
+      youtube: "https://www.youtube.com/embed/EzcriUhfnkg",
+      answers: ["Felix behöver en shot (rätt svar)", "Felix behöver en öl", "Felix behöver en kram", "Felix behöver ligga"],
+      correct: 0
+    },
+    {
       type: "text",
       question: "I gymnasiet var det 2 saker framförallt Fella avstod ifrån enligt en känd shot ramsa, vad var det?",
       image: "images/Felix_Sexy.jpg",
