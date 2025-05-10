@@ -204,6 +204,20 @@ const questions = [
       correctAnswer: "Leksands IF"
     },
     {
+      type: "mc",
+      question: "Felix bodde under en period i Nya Zeeland. I vilken stad bodde han majoriteten av tiden?",
+      image: "images/Felix_New_Z.jpg",
+      answers: ["Auckland", "Wellington", "Christchurch", "Dunedin", "Rotorua", "Queenstown"],
+      correct: 1
+    },
+    {
+      type: "mc",
+      question: "Förgående stad har också ett känt adjektiv som beskriver staden. Vad är det för adjektiv?",
+      image: "images/Felix_New_Z_2.jpg",
+      answers: ["Awesome", "Windy", "Downy", "Crazy", "Rainy", "Chilly"],
+      correct: 1
+    },
+    {
         type: "mc",
         question: "Vad är säger Felix härnäst i klippet?",
         youtube: "https://www.youtube.com/embed/n55_AMS7LyU",
@@ -382,7 +396,7 @@ const questions = [
       .from("highscores")
       .select("*")
       .order("score", { ascending: false })
-      .limit(5);
+      .limit(15);
   
     if (error) {
       leaderboardDiv.innerHTML += "<p>Kunde inte ladda topplistan.</p>";
@@ -409,7 +423,7 @@ const questions = [
       .from("highscores")
       .select("*")
       .order("score", { ascending: false })
-      .limit(12);
+      .limit(15);
   
     if (error) {
       leaderboardStartDiv.innerHTML += "<p>Kunde inte ladda topplistan.</p>";
